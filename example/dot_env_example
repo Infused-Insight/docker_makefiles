@@ -1,0 +1,2 @@
+# cp dot_env_example .env
+WHOAMI_HOST=whoami.your-domain.com
