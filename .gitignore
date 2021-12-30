@@ -1,0 +1,8 @@
+# Editor Files
+/.vscode
+
+# Settings
+.env
+
+# OS
+.DS_Store
