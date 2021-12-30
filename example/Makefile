@@ -15,6 +15,12 @@ include ../help.mk
 # with `make attach PS=traefik`
 PS = whoami
 
+# Primary Service Shell
+# By default `make attach` and `make tty` run bash in the containers.
+# But since some docker images don't have bash installed, you can use this
+# to change it.
+PS_SHELL = /bin/sh
+
 # Set `help` as the default command
 # Include this if you want running `make` to output the help instead of
 # running `make build`

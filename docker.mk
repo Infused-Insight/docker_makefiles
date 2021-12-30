@@ -1,3 +1,5 @@
+PS_SHELL = bash
+
 run-default: ## Run the service in the background
 	@echo "Starting "$(PS)" in background"
 	@make show-url
@@ -21,16 +23,16 @@ logsa-default: ## Show all logs since the service's last start
 	docker-compose logs --follow
 
 tty-default: ## Start the primary service with a user shell
-	docker-compose run "$(PS)" bash
+	docker-compose run "$(PS)" $(PS_SHELL)
 
 ttyr-default: ## Start the primary service with a root shell
-	docker-compose run -u root "$(PS)" bash
+	docker-compose run -u root "$(PS)" $(PS_SHELL)
 
 attach-default: ## Attach to the primary service with a user shell
-	docker-compose exec "$(PS)" bash
+	docker-compose exec "$(PS)" $(PS_SHELL)
 
 attachr-default: ## Attach to the primary service with a root shell
-	docker-compose exec -u root "$(PS)" bash
+	docker-compose exec -u root "$(PS)" $(PS_SHELL)
 
 conf-default: ## Show the docker-compose config
 	docker-compose config
