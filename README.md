@@ -2,9 +2,16 @@
 
 ## Description
 
-Makefiles that make working with docker easier and more convenient. Provides simple commands to run, stop, restart, view logs and much more.
+Makefiles that make working with docker easier and more convenient.
 
-All available commands can be viewed with `make help`:
+The Makefiles...
+
+* Auto-generate a list of all available targets / commands that you can see by running `make help`
+
+* Provide useful default commands such as `make run`, `make restart` and many more
+* Allow you to add additional service-specific commands
+* Allow you to override default commands
+* Display the traefik URL of the service on start / restart
 
 ![Screenshot](./screenshot.png)
 
