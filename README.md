@@ -89,10 +89,11 @@ PS = whoami
 # to change it.
 PS_SHELL = /bin/sh
 
-# Set `help` as the default command (Optional)
-# Include this if you want running `make` to output the help instead of
-# running `make build`
-.DEFAULT_GOAL := help
+# Set another command as the default target (Optional)
+# If you simply run `make` without specifying a target, it will show the help.
+# If you'd rather it did something else, such as build, you can change it with
+# the line below.
+# .DEFAULT_GOAL := build
 
 # Additional make targets (Optional)
 # Add custom targets like this.
@@ -149,6 +150,7 @@ But some commands need to run on a specific container, such as `make attach` (wh
 You need to set which should be the primary container using the `PS` variable in your Makefile.
 
 In the example project the primary service is set to `whoami`:
+
 ```Makefile
 PS = whoami
 ```
@@ -162,15 +164,17 @@ By default the commands `make tty` and `make attach` execute `bash` in the conta
 But some docker images don't include `bash` and instead only ship with `sh`.
 
 You can change the default shell by setting the `PS_SHELL` variable in in your `Makefile`:
+
 ```Makefile
 PS_SHELL = /bin/sh
 ```
 
 ### Set the default make target
-By default running `make` (without a target) is the equivalent of executing `make build`.
 
-If you want to change this to display the help instead, add the following line to your `Makefile`:
+By default running `make` (without a target) is the equivalent of executing `make help`.
+
+If you want to change this to do something else instead, add the following line to your `Makefile`:
 
 ```Makefile
-.DEFAULT_GOAL := help
+.DEFAULT_GOAL := build
 ```

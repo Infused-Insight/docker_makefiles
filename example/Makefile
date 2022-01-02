@@ -21,10 +21,11 @@ PS = whoami
 # to change it.
 PS_SHELL = /bin/sh
 
-# Set `help` as the default command (Optional)
-# Include this if you want running `make` to output the help instead of
-# running `make build`
-.DEFAULT_GOAL := help
+# Set another command as the default target (Optional)
+# If you simply run `make` without specifying a target, it will show the help.
+# If you'd rather it did something else, such as build, you can change it with
+# the line below.
+# .DEFAULT_GOAL := build
 
 # Additional make targets (Optional)
 # Add custom targets like this.

@@ -1,3 +1,5 @@
+.DEFAULT_GOAL := help
+
 # Get path to this help.mk file
 # Get path to the help script based on that (../scripts/make_help.sh)
 # Run the script with a list of all makefiles
