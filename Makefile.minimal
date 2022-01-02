@@ -1,0 +1,11 @@
+# Run `make help` to get full list of available commands.
+# Many targets are in the included makefiles.
+include docker_makefiles/docker.mk
+include docker_makefiles/help.mk
+
+PS = whoami
+PS_SHELL = /bin/sh
+# .DEFAULT_GOAL := build
+
+custom-target: ## Help for custom-target
+	@echo "To something cool"
