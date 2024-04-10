@@ -3,39 +3,39 @@ PS_SHELL = bash
 run-default: ## Run the service in the background
 	@echo "Starting "$(PS)" in background"
 	@make show-url
-	docker-compose up -d
+	docker compose up -d
 
 runf-default: ## Run the service in the foreground
 	@echo "Starting "$(PS)" in foreground"
 	@make show-url
-	docker-compose up
+	docker compose up
 
 stop-default: ## Stop the service
 	@echo "Killing "$(PS)" container"
-	docker-compose down
+	docker compose down
 
 restart-default: stop print-newline run ## Restart the service
 
 logs-default: ## Show latest logs
-	docker-compose logs --follow --tail 50
+	docker compose logs --follow --tail 50
 
 logsa-default: ## Show all logs since the service's last start
-	docker-compose logs --follow
+	docker compose logs --follow
 
 tty-default: ## Start the primary service with a user shell
-	docker-compose run "$(PS)" $(PS_SHELL)
+	docker compose run "$(PS)" $(PS_SHELL)
 
 ttyr-default: ## Start the primary service with a root shell
-	docker-compose run -u root "$(PS)" $(PS_SHELL)
+	docker compose run -u root "$(PS)" $(PS_SHELL)
 
 attach-default: ## Attach to the primary service with a user shell
-	docker-compose exec "$(PS)" $(PS_SHELL)
+	docker compose exec "$(PS)" $(PS_SHELL)
 
 attachr-default: ## Attach to the primary service with a root shell
-	docker-compose exec -u root "$(PS)" $(PS_SHELL)
+	docker compose exec -u root "$(PS)" $(PS_SHELL)
 
-conf-default: ## Show the docker-compose config
-	docker-compose config
+conf-default: ## Show the docker compose config
+	docker compose config
 
 show-url-default: ## Show the traefik URL of the service
 	@{ \
@@ -44,7 +44,7 @@ show-url-default: ## Show the traefik URL of the service
 			echo "WARNING: Please install yq to show service URL."; \
 		else \
 			export URL=$$( \
-				docker-compose config | \
+				docker compose config | \
 				yq eval '.services.$(PS).labels' - | \
 				grep "traefik\..*\.rule:.*Host" | \
 				gawk 'match($$0, ".*Host\\(`([^`]*)`\\)", m) { printf "https://%s/", m[1]}' \

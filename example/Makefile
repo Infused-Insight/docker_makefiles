@@ -31,7 +31,7 @@ PS_SHELL = /bin/sh
 # Add custom targets like this.
 # By adding a comment, you make them appear in the help
 attach-traefik: ## Attach to the traefik service with a user shell
-	docker-compose exec "traefik" /bin/sh
+	docker compose exec "traefik" /bin/sh
 
 # Override default targets (Optional)
 # You can replace default targets by simply reimplementing them in
